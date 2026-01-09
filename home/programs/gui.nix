@@ -44,6 +44,7 @@
     helvum # pipewire graph thingy
     pavucontrol
     showmethekey # shows keys typed in a little gui
+    qbittorrent
 
     # Davinci Resolve only lets you use your Studio key on a select # of machines
     (if config.host.hostname == "pc" then davinci-resolve-studio else davinci-resolve)
