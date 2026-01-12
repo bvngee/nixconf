@@ -17,7 +17,18 @@
     keyMap = "us";
   };
 
+  # Enable all documentation (incl. developer-specific stuff)
+  documentation = {
+    enable = true;
+    man.enable = true;
+    man.generateCaches = true;
+    info.enable = true;
+    doc.enable = true;
+    dev.enable = true;
+  };
+
   environment.systemPackages = with pkgs; [
+    man-pages # Linux development man pages
     git # Useful when debugging
   ];
 
