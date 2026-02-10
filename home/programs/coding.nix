@@ -38,11 +38,16 @@
       # Misc
       sqlite-interactive
 
+      # Embedded
+      openocd
+      avrdude
+
       # C/C++
       stdenv.cc # same C/C++ toolchain used to build nixpkgs packages
       gnumake
       clang-tools
       clangdUnwrapped
+      bear
       gdb
       meson
       ninja
