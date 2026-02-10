@@ -1,4 +1,20 @@
 { self, pkgs, config, ... }: {
+  # Thunderbolt 3 device manager
+  services.hardware.bolt.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    # CLI/GUI manager for the Logitech Unifying Receiver
+    solaar
+
+    # Glorious Model O Wireless CLI configuration tool
+    self.packages.${pkgs.stdenv.hostPlatform.system}.mow
+  ];
+
+  services.udev.packages = with pkgs; [
+    # supposedly more up to date than what's included with solaar
+    logitech-udev-rules
+  ];
+
   # Creates plugdev group
   users.groups.plugdev = { };
   # Adds my user to plugdev and dialout groups
@@ -62,19 +78,5 @@
     LABEL="rules_end"
     # -------------  END  --------------
   '';
-
-
-  environment.systemPackages = with pkgs; [
-    # CLI/GUI manager for the Logitech Unifying Receiver
-    solaar
-
-    # Glorious Model O Wireless CLI configuration tool
-    self.packages.${pkgs.stdenv.hostPlatform.system}.mow
-  ];
-
-  services.udev.packages = with pkgs; [
-    # supposedly more up to date than what's included with solaar
-    logitech-udev-rules
-  ];
 
 }
