@@ -78,11 +78,11 @@
   services.sysprof.enable = true;
 
   # Modify how laptop lidSwitch/powerKey is handled
-  services.logind = lib.mkIf (config.host.isMobile) {
-    lidSwitch = "suspend";
-    lidSwitchDocked = "ignore";
-    lidSwitchExternalPower = "suspend";
-    powerKey = "sleep";
-    powerKeyLongPress = "poweroff";
+  services.logind.settings.Login = lib.mkIf (config.host.isMobile) {
+    HandleLidSwitch = "suspend";
+    HandleLidSwitchDocked = "ignore";
+    HandleLidSwitchExternalPower = "suspend";
+    HandlePowerKey = "sleep";
+    HandlePowerKeyLongPress = "poweroff";
   };
 }
