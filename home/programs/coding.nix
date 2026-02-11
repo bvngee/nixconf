@@ -32,7 +32,7 @@
     in
     with pkgs; [
       # IDEs and Editors
-      jetbrains.idea-community
+      # jetbrains.idea-oss # keeps getting stuck on "buildPhase: resolve project dependencies" ???
       vscode-fhs
 
       # Misc
