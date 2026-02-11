@@ -45,6 +45,7 @@
     pavucontrol
     showmethekey # shows keys typed in a little gui
     qbittorrent
+    freecad
 
     # Davinci Resolve only lets you use your Studio key on a select # of machines
     (if config.host.hostname == "pc" then davinci-resolve-studio else davinci-resolve)
