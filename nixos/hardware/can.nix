@@ -13,8 +13,12 @@
     (self.packages.${pkgs.stdenv.hostPlatform.system}.ix_usb_can.override {
       kernel = config.boot.kernelPackages.kernel;
     })
+
+    (self.packages.${pkgs.stdenv.hostPlatform.system}.supercan_usb.override {
+      kernel = config.boot.kernelPackages.kernel;
+    })
   ];
-  boot.kernelModules = [ "ix_usb_can" ];
+  boot.kernelModules = [ "ix_usb_can" "supercan_usb" ];
 
   environment.systemPackages = with pkgs; [
     # CLI tools for interfacing with socketCAN interfaces

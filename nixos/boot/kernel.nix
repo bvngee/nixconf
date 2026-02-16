@@ -18,6 +18,6 @@
 
     # Any extra kernel modules go here
     extraModulePackages = [ ]; #with config.boot.kernelPackages; 
-    kernelModules = [ "ix_usb_can" ];
+    kernelModules = [ ];
   };
 }

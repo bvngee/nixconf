@@ -19,6 +19,8 @@
           mow = pkgs.callPackage ./pkgs/mow {};
 
           ix_usb_can = pkgs.linuxPackages.callPackage ./pkgs/ix_usb_can {};
+
+          supercan_usb = pkgs.linuxPackages.callPackage ./pkgs/supercan_usb {};
         };
       };
 
