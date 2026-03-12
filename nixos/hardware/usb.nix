@@ -81,23 +81,23 @@
 
     ### Total Phase USB Device Configuration
     # Aarvark I2C/SPI Host Adapter
-    ACTION=="add", SUBSYSTEM=="usb_device", SYSFS{idVendor}=="0403", SYSFS{idProduct}=="e0d0", OWNER="root", GROUP="root", MODE="0666"
+    ACTION=="add", SUBSYSTEM=="usb_device", ATTR{idVendor}=="0403", ATTR{idProduct}=="e0d0", OWNER="root", GROUP="root", MODE="0666"
     ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="0403", ATTR{idProduct}=="e0d0", OWNER="root", GROUP="root", MODE="0666"
 
     # Beagle I2C/SPI/USB Protocol Analyzer
-    ACTION=="add", SUBSYSTEM=="usb_device", SYSFS{idVendor}=="1679", SYSFS{idProduct}=="2001", OWNER="root", GROUP="root", MODE="0666"
+    ACTION=="add", SUBSYSTEM=="usb_device", ATTR{idVendor}=="1679", ATTR{idProduct}=="2001", OWNER="root", GROUP="root", MODE="0666"
     ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="1679", ATTR{idProduct}=="2001", OWNER="root", GROUP="root", MODE="0666"
 
     # Cheetah SPI Host Adapter
-    ACTION=="add", SUBSYSTEM=="usb_device", SYSFS{idVendor}=="1679", SYSFS{idProduct}=="2002", OWNER="root", GROUP="root", MODE="0666"
+    ACTION=="add", SUBSYSTEM=="usb_device", ATTR{idVendor}=="1679", ATTR{idProduct}=="2002", OWNER="root", GROUP="root", MODE="0666"
     ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="1679", ATTR{idProduct}=="2002", OWNER="root", GROUP="root", MODE="0666"
 
     # Komodo CAN Solo/Duo Interface
-    ACTION=="add", SUBSYSTEM=="usb_device", SYSFS{idVendor}=="1679", SYSFS{idProduct}=="3001", OWNER="root", GROUP="root", MODE="0666"
+    ACTION=="add", SUBSYSTEM=="usb_device", ATTR{idVendor}=="1679", ATTR{idProduct}=="3001", OWNER="root", GROUP="root", MODE="0666"
     ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="1679", ATTR{idProduct}=="3001", OWNER="root", GROUP="root", MODE="0666"
 
     # Power Delivery Analyzer
-    ACTION=="add", SUBSYSTEM=="usb_device", SYSFS{idVendor}=="1679", SYSFS{idProduct}=="6003", OWNER="root", GROUP="root", MODE="0666"
+    ACTION=="add", SUBSYSTEM=="usb_device", ATTR{idVendor}=="1679", ATTR{idProduct}=="6003", OWNER="root", GROUP="root", MODE="0666"
     ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="1679", ATTR{idProduct}=="6003", OWNER="root", GROUP="root", MODE="0666"
 
     # Power Delivery Analyzer (Console)

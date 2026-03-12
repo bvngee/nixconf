@@ -64,12 +64,16 @@
       xorg.libxcb
       xorg.libxkbfile
       xorg.libxshmfence
+      xorg.libSM
+      xorg.libICE
       xorg.xcbutilkeysyms
       xorg.xcbutilimage
       xorg.xcbutilrenderutil
       xorg.xcbutilwm
       xorg.xcbutilerrors
+      xorg.xcbutilerrors
       zlib
+      orc
     ];
   };
 }
