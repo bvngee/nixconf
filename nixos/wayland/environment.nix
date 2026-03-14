@@ -38,8 +38,18 @@
       ''
 
       ''
-        # Execute wayland compositor from positional args
-        exec "$@"
+        # Home manager sets our sessionVariables via shell configurations, but
+        # doesn't control the login sequence, and we don't use a fancy Login
+        # Manager that would source these variables for us. So we manually
+        # source Home Manager's session variables here, so that compositors can
+        # have them too (eg. QT_QPA_PLATFORMTHEME).
+        source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+      ''
+
+      ''
+        # Execute wayland compositor from positional args, piping output into
+        # systemd journal (is $1 always correct?).
+        systemd-cat -t "$1" "$@"
       ''
     ]);
 }
