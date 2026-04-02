@@ -8,7 +8,15 @@
         package = pkgs.xremap;
         enable = true;
 
-        withWlroots = true; # future- make depend on variables?
+        # Note: without any `withCompositor` feature flags enabled, no
+        # per-application remap support exists
+
+        # My Logitech MX Vertical is weird and creates multiple keyboard uinput
+        # devices and when xremap claims them it also claims the corresponding
+        # mouse input device which prevents Hyprland from changing its
+        # sensitivity directly.
+        extraArgs = [ "--ignore 'MX Vertical'" ];
+
         watch = true;
         userName = config.host.mainUser;
         serviceMode = "system";
