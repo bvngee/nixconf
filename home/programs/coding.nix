@@ -37,10 +37,13 @@
 
       # Misc
       sqlite-interactive
-
+      sublime-merge
+      
       # Embedded
       openocd
       avrdude
+      stm32cubemx
+      stlink-gui # includes st-flash util
 
       # C/C++
       stdenv.cc # same C/C++ toolchain used to build nixpkgs packages
@@ -67,8 +70,8 @@
       uv
 
       # MicroPython
-      adafruit-ampy
-      mpremote
+      #adafruit-ampy
+      #mpremote
 
       # Java (see jdks below)
       jdt-language-server
@@ -80,7 +83,7 @@
       # Shell
       nodePackages.bash-language-server
       shellcheck
-      powershell-editor-services # windows stuff # 25.05
+      powershell-editor-services # windows stuff
       powershell
 
       # Nix
