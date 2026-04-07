@@ -114,6 +114,7 @@ return {
       },
       svelte = {},
       mesonlsp = {},
+      hls = {},
 
       -- from vscode-langservers-extracted:
       cssls = {},

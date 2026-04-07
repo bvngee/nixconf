@@ -119,6 +119,9 @@
 
       # Dart / Flutter
       flutter
+
+      # Haskell
+      stack
     ];
 
   programs.zed-editor = {
