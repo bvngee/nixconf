@@ -13,6 +13,7 @@
     font-awesome
     corefonts
     vista-fonts
+    newcomputermodern
   ];
 
 }
