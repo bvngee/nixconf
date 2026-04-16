@@ -122,6 +122,7 @@
 
       # Haskell
       stack
+      haskellPackages.haskell-language-server
     ];
 
   programs.zed-editor = {
