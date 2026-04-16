@@ -46,6 +46,7 @@
     calc # cli calculator. See `c` alias in home/shell/default.nix
     dotenv-cli
     net-tools
+    pandoc
   ];
 
   programs = {
