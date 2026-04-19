@@ -29,6 +29,7 @@ let
     ../home/spicetify.nix
     ../home/udiskie.nix
     ../home/thunar.nix
+    ../home/dconf.nix
     ../home/theme/fonts.nix
     ../home/theme/cursor.nix
     ../home/theme/gtk.nix

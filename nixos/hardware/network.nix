@@ -4,7 +4,7 @@
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
 
   networking.networkmanager.enable = true;
-  # gives my user permission to change network settings
+  # Gives my user permission to change network settings
   users.users.${config.host.mainUser}.extraGroups = [ "networkmanager" ];
 
   # Sesolved will use the dns servers set in `networking.nameservers`:
@@ -20,15 +20,14 @@
   # TODO(24.11): look into this maybe?
   # boot.initrd.services.resolved.enable = true;
 
-  boot.kernel.sysctl = {
-    "net.ipv6.conf.all.forwarding" = true;
+  # Provides a tray UI to manager networks, and is also a Network Manager Secret
+  # Agent (i.e. network manager should use nm-applet to ask for passwords).
+  # This is only useable thanks to the disabled notifications via dconf settings
+  # in home/dconf.nix.
+  programs.nm-applet = {
+    enable = true;
+    indicator = true;
   };
-
-  # spams annoying notifications, tray menu is barely useful
-  # programs.nm-applet = {
-  #   enable = false;
-  #   indicator = true;
-  # };
 
   # Hardcoded NetworkManager configurations. First created manually in nmtui (or other tools),
   # then converted to nix code via https://github.com/janik-haag/nm2nix. These exist alongside
@@ -36,35 +35,43 @@
   # Config spec: https://networkmanager.dev/docs/api/latest/nm-settings-nmcli.html
   networking.networkmanager.ensureProfiles.profiles =
     let
-      mkUCSCProfile = ssid: {
+      mkEduroamProfile = ssid: {
         wifi = {
           inherit ssid;
           mode = "infrastructure";
         };
         "802-1x" = {
+          # Can be omitted, but that allows MITM attacks.
           ca-cert = "${pkgs.fetchurl { 
-            url = "https://its.ucsc.edu/wireless/docs/ca.crt";
+            url = "https://drive.usercontent.google.com/download?id=15MIbkLNMgJZPSQVxelrq9fn3BVD8OlSC&confirm=xxx";
             hash = "sha256-XrH90kYbm+QpqMrAROtmHcJDUF+6TIm3DWoYF14Jydc="; 
+            name = "ca.crt";
           }}";
           anonymous-identity = "anon";
           domain-suffix-match = "ucsc.edu";
           eap = "peap;";
           identity = "jnystrom@ucsc.edu";
-          password-flags = 0; # Store password # TODO: this doesn't actually remember the password for you
+          # Password is agent-owned. NM will query a secret agent program for
+          # the password, i.e. nm-applet (https://networkmanager.dev/docs/libnm/latest/NMSetting.html#NMSettingSecretFlags)
+          password-flags = 1; 
           phase2-auth = "mschapv2";
         };
         connection = {
-          id = "UCSC ${ssid} (nixconf)";
+          id = "${ssid} (nixconf)";
           type = "wifi";
           autoconnect = true;
+          autoconnect-priority = "30";
         };
-        wifi-security.key-mgmt = "wpa-eap";
+        wifi-security = {
+          auth-alg = "open";
+          key-mgmt = "wpa-eap";
+        };
         proxy = { };
       };
     in
     {
-      "UCSC eduroam (nixconf)" = lib.mkIf (config.host.isMobile) (mkUCSCProfile "eduroam");
-      "UCSC ResWiFi (nixconf)" = lib.mkIf (config.host.isMobile) (mkUCSCProfile "ResWiFi");
+      "Eduroam (nixconf)" = lib.mkIf (config.host.isMobile) (mkEduroamProfile "eduroam");
+      "ResWiFi (nixconf)" = lib.mkIf (config.host.isMobile) (mkEduroamProfile "ResWiFi");
     };
 
   # Configures wpa_supplicant directly; mostly incompatible with the above networkingmanager
