@@ -81,6 +81,12 @@ in
       ../hosts/precision/profile.nix
     ] ++ commonGraphicalHMModules;
   };
+  "jack@precision_old" = mkHomeManagerConfig {
+    system = "x86_64-linux";
+    imports = [
+      ../hosts/precision_old/profile.nix
+    ] ++ commonGraphicalHMModules;
+  };
 
   "jacknystrom@wsl" = mkHomeManagerConfig {
     system = "x86_64-linux";

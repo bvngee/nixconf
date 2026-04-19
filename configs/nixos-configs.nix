@@ -75,6 +75,18 @@ in
       ../hosts/precision/profile.nix
       ../hosts/precision/nixos
 
+      # ../nixos/programs/gaming.nix
+
+      ../nixos/kde.nix
+      ../nixos/hardware/vms.nix
+      ../nixos/hardware/ssd.nix
+    ] ++ commonGraphicalNixosModules;
+  };
+  "precision_old" = mkNixosSystem {
+    imports = [
+      ../hosts/precision/profile.nix
+      ../hosts/precision/nixos
+
       ../nixos/programs/gaming.nix
 
       ../nixos/kde.nix
