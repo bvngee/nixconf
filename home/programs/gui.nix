@@ -50,8 +50,7 @@
     # Davinci Resolve only lets you use your Studio key on a select # of machines
     (if config.host.hostname == "pc" then davinci-resolve-studio else davinci-resolve)
 
-    # TODO: remove when kicad 9.0.6 in nixos-stable
-    pkgsUnstable.kicad
+    kicad
   ];
 
   services = { };
