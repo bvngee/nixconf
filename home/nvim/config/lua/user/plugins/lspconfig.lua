@@ -110,7 +110,7 @@ return {
       },
       -- previously did `npm i @astrojs/language-server`, now I use nixpkgs
       astro = {
-        -- cmd = { 'npx', 'astro-ls', '--stdio' } -- for project-local installation
+        cmd = { 'npx', 'astro-ls', '--stdio' } -- for project-local installation
       },
       svelte = {},
       mesonlsp = {},
