@@ -1,5 +1,5 @@
 # Custom configuration for Dell Precision laptop
-# See: <todo: add pdf link>
+# See: www.delltechnologies.com/asset/en-ie/products/workstations/technical-support/precision-5490-spec-sheet.pdf
 { pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
