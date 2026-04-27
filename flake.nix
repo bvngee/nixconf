@@ -48,6 +48,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Currently only used for qt6ct-kde, from github:ilya-fedin/nur-repository
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     # Used for the nixos module's xremap systemd service only. Package is used from nixpkgs
     xremap-flake = {
       url = "github:xremap/nix-flake";

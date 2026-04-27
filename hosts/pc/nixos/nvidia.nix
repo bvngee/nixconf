@@ -10,7 +10,7 @@
 
     modesetting.enable = true; # also adds nvidia-drm.modeset=1 kernel param
 
-    nvidiaSettings = false; # basically useless software
+    nvidiaSettings = true;
 
     # nvidia drivers with explicit sync support (as of 555)!
     package = config.boot.kernelPackages.nvidiaPackages.stable;

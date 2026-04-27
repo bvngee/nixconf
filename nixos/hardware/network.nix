@@ -7,7 +7,7 @@
   # Gives my user permission to change network settings
   users.users.${config.host.mainUser}.extraGroups = [ "networkmanager" ];
 
-  # Sesolved will use the dns servers set in `networking.nameservers`:
+  # resolved will use the dns servers set in `networking.nameservers`:
   # https://github.com/NixOS/nixpkgs/blob/7105ae3957700a9646cc4b766f5815b23ed0c682/nixos/modules/system/boot/resolved.nix#L18
   # This also automatically sets `networking.resolvconf.enable` to false
   services.resolved = {

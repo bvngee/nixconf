@@ -38,6 +38,8 @@
       # Misc
       sqlite-interactive
       sublime-merge
+      gnumake
+      just
       
       # Embedded
       openocd
@@ -47,7 +49,6 @@
 
       # C/C++
       stdenv.cc # same C/C++ toolchain used to build nixpkgs packages
-      gnumake
       clang-tools
       clangdUnwrapped
       bear

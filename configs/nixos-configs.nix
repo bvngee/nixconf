@@ -21,7 +21,8 @@ let
 
     ../nixos/hardware/printing.nix
     ../nixos/hardware/backlight.nix
-    ../nixos/hardware/opengl.nix
+    ../nixos/hardware/graphics.nix
+    ../nixos/hardware/nvidia-common.nix
     ../nixos/hardware/usb.nix
     ../nixos/hardware/power.nix
     ../nixos/hardware/audio.nix
@@ -71,6 +72,18 @@ in
     ] ++ commonGraphicalNixosModules;
   };
   "precision" = mkNixosSystem {
+    imports = [
+      ../hosts/precision/profile.nix
+      ../hosts/precision/nixos
+
+      # ../nixos/programs/gaming.nix
+
+      ../nixos/kde.nix
+      ../nixos/hardware/vms.nix
+      ../nixos/hardware/ssd.nix
+    ] ++ commonGraphicalNixosModules;
+  };
+  "precision_old" = mkNixosSystem {
     imports = [
       ../hosts/precision/profile.nix
       ../hosts/precision/nixos
