@@ -3,6 +3,8 @@
     graphics = {
       enable = true;
 
+      # Honestly I'm not sure if this library is hardware specific or not...
+      # https://github.com/intel/libva
       extraPackages = with pkgs; [ libva ];
       extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
     };

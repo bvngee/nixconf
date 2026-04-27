@@ -21,7 +21,8 @@ let
 
     ../nixos/hardware/printing.nix
     ../nixos/hardware/backlight.nix
-    ../nixos/hardware/opengl.nix
+    ../nixos/hardware/graphics.nix
+    ../nixos/hardware/nvidia-common.nix
     ../nixos/hardware/usb.nix
     ../nixos/hardware/power.nix
     ../nixos/hardware/audio.nix

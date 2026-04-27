@@ -2,7 +2,7 @@
   # For a more thorough nvidia config, see my pc's nvidia settings.
   # Partially stolen from nixos-hardware
   hardware.nvidia = {
-    nvidiaSettings = false;
+    nvidiaSettings = true;
     modesetting.enable = true;
     powerManagement.enable = false; # not new enough to support this
     open = false;

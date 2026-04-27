@@ -1,8 +1,8 @@
 { config, ... }: {
   hardware.nvidia = {
-    nvidiaSettings = false;
+    nvidiaSettings = true;
     modesetting.enable = true;
-    open = false;
+    open = true;
     prime = {
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
@@ -11,7 +11,7 @@
     };
     powerManagement = {
         enable = true;
-        finegrained = true;
+        finegrained = true; # TODO: when updating try this again
     };
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };

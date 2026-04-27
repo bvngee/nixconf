@@ -1,6 +1,6 @@
 # Custom configuration for Dell Precision laptop
 # See: <todo: add pdf link>
-{ lib, pkgs, ... }: {
+{ pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
     ./nvidia.nix
