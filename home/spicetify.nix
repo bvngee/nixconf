@@ -5,8 +5,6 @@ in {
 
   programs.spicetify = {
     enable = true;
-    # spotifyPackage = pkgsUnstable.spotify;
-    # spicetifyPackage = pkgsUnstable.spicetify-cli;
     theme = spicetifyPkgs.themes.default;
     enabledExtensions = with spicetifyPkgs.extensions; [
       seekSong

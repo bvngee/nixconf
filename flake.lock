@@ -554,6 +554,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-kicad": {
+      "locked": {
+        "lastModified": 1774794121,
+        "narHash": "sha256-gih24b728CK8twDNU7VX9vVYK2tLEXvy9gm/GKq2VeE=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "c397ef6af68c018462d786e1b65384abc472a907",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "c397ef6af68c018462d786e1b65384abc472a907",
+        "type": "github"
+      }
+    },
     "nixpkgs-lib": {
       "locked": {
         "lastModified": 1751159883,
@@ -717,6 +733,7 @@
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
         "nixpkgs-kernel-packages": "nixpkgs-kernel-packages",
+        "nixpkgs-kicad": "nixpkgs-kicad",
         "nixpkgs-neovim": "nixpkgs-neovim",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nur": "nur",

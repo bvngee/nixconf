@@ -1,4 +1,4 @@
-# Custom configuration for Dell Precision laptop
+# Custom configuration for old beafy Dell Precision laptop
 { lib, pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix

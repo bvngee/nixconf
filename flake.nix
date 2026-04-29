@@ -37,6 +37,8 @@
     # nvidia drivers. When I do feel like it, I can fast-forward this
     nixpkgs-kernel-packages.url = "github:nixos/nixpkgs/nixos-25.11";
 
+    nixpkgs-kicad.url = "github:nixos/nixpkgs/c397ef6af68c018462d786e1b65384abc472a907";
+
     # nix-index, but with a prebuilt database (and convenient hm/nixos modules)
     nix-index-database = {
       url = "github:nix-community/nix-index-database";

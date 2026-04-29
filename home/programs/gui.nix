@@ -1,4 +1,4 @@
-{ pkgsUnstable, config, pkgs, ... }: {
+{ inputs, config, pkgs, ... }: {
   home.packages = with pkgs; [
     # Image, video
     kdePackages.gwenview
@@ -50,7 +50,8 @@
     # Davinci Resolve only lets you use your Studio key on a select # of machines
     (if config.host.hostname == "pc" then davinci-resolve-studio else davinci-resolve)
 
-    kicad
+    # Kicad 9.0.8, contains the fix for readonly sym/fp lib tables from 9.0.6.
+    inputs.nixpkgs-kicad.legacyPackages.${pkgs.stdenv.hostPlatform.system}.kicad
   ];
 
   services = { };

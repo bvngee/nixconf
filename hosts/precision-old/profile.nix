@@ -1,6 +1,6 @@
 { ... }: {
   host = {
-    hostname = "precision_old";
+    hostname = "precision-old";
     stateVersion = "24.05";
     flakeRoot = "/home/jack/dev/nixconf";
     isMobile = true;

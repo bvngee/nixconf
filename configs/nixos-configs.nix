@@ -83,10 +83,10 @@ in
       ../nixos/hardware/ssd.nix
     ] ++ commonGraphicalNixosModules;
   };
-  "precision_old" = mkNixosSystem {
+  "precision-old" = mkNixosSystem {
     imports = [
-      ../hosts/precision/profile.nix
-      ../hosts/precision/nixos
+      ../hosts/precision-old/profile.nix
+      ../hosts/precision-old/nixos
 
       ../nixos/programs/gaming.nix
 

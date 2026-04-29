@@ -6,7 +6,11 @@
     ./nvidia.nix
   ];
 
-  boot.kernelParams = [];
+  boot.kernelParams = [
+    # Experiment: try new intel igpu driver. TODO: when update to newer kernel, try this again!!
+    # "i915.force_probe=!7d55"
+    # "xe.force_probe=7d55"
+  ];
 
   hardware.graphics.extraPackages = [ pkgs.intel-media-driver ];
   hardware.graphics.extraPackages32 = [ pkgs.pkgsi686Linux.intel-media-driver ];
