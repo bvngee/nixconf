@@ -5,10 +5,17 @@
     dotDir = "${config.xdg.configHome}/zsh";
     history = {
       path = "${config.xdg.dataHome}/zsh_history";
-      size = 100000; # I like my history
+      # I like my history
+      size = 1000000;
+      save = 1000000;
+      # Add timestamps
+      extended = true;
       expireDuplicatesFirst = true;
       ignoreDups = true;
       ignoreSpace = true;
+      append = true;
+      # Instead, I set INC_APPEND_HISTORY_TIME. See https://zsh.sourceforge.io/Doc/Release/Options.html#History
+      share = false;
     };
     initContent =
       let
@@ -50,6 +57,8 @@
           fi
         '';
         zshExtraConfig = ''
+          setopt INC_APPEND_HISTORY_TIME
+
           flakify() {
             if [ ! -e flake.nix ]; then
               curl -OL https://raw.githubusercontent.com/Bvngee/nix-flake-template/main/flake.nix
