@@ -76,7 +76,7 @@ in
       ../hosts/precision/profile.nix
       ../hosts/precision/nixos
 
-      # ../nixos/programs/gaming.nix
+      ../nixos/programs/gaming.nix
 
       ../nixos/kde.nix
       ../nixos/hardware/vms.nix
