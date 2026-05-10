@@ -7,7 +7,7 @@
 
   # I've heard it's common these fail to build (not sure if necessary anymore)
   manual = {
-    manpages.enable = false;
+    manpages.enable = true;
     html.enable = false;
     json.enable = false;
   };

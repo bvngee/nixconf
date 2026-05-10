@@ -15,5 +15,8 @@
   hardware.graphics.extraPackages = [ pkgs.intel-media-driver ];
   hardware.graphics.extraPackages32 = [ pkgs.pkgsi686Linux.intel-media-driver ];
 
+  # To enroll: `fprintd-enroll`
+  services.fprintd.enable = true;
+
   system.stateVersion = "25.11";
 }

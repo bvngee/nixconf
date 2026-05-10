@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }: {
-# Common configurations shared between all desktop-nixos variations.
+  # Common configurations shared between all desktop-nixos variations.
 
   # We use the tzupdate service for automatic imperative timezone setting based
   # on geolocation. Sets `time.timeZone to null`
@@ -48,10 +48,61 @@
   # Used for apps that depend on a dbus secret-service provider
   services.gnome.gnome-keyring.enable = true; # prefer this over Kwallet
 
-  # Let pam_gnome_keyring auto-unlock the user's default gnome keyring on login
-  security.pam.services.login.enableGnomeKeyring = true;
-  security.pam.services.greetd.enableGnomeKeyring = true;
-  security.pam.services.tuigreet.enableGnomeKeyring = true;
+  # Pluggable Authentication Modules.
+  # Services typically correspond to programs (swaylock), and rules are steps
+  # that PAM must take for that service to complete its authentication.
+  security.pam.services =
+    let
+      servicesToAddFprintdPasswdRule =
+        if config.services.fprintd.enable
+        then [ "sudo" "polkit-1" "swaylock" "hyprlock" ]
+        else [ ];
+    in
+    {
+      # Greetd supports unique service files per greeter, but only needs to find
+      # the default "greetd" service file by default (https://github.com/kennylevinsen/greetd/blob/d3b45e7398d3eed65b39c532c713ea052a5b9278/greetd/src/config/mod.rs#L67)
+
+      # Let pam_gnome_keyring auto-unlock the user's default gnome keyring on login
+      login.enableGnomeKeyring = true;
+      greetd.enableGnomeKeyring = true;
+
+      # Don't use pam_fprintd first login manager. This will be removed
+      # eventually anyways, as it breaks pam_gnome_keyring auto_start
+      # (which forces password prompts later anyways) and it's also just
+      # a significantly increased security risk (https://gitlab.freedesktop.org/libfprint/fprintd/-/work_items/23)
+      login.fprintAuth = false;
+      greetd.fprintAuth = false;
+
+      # Enable screen lockers to actually unlock the screen (are these really needed?)
+      hyprlock = { };
+      swaylock = { };
+    }
+    // (lib.mergeAttrsList (lib.map
+      (s: {
+        # The following is a solution to make the pam_fprint experience better in
+        # GUI apps (swaylock/hyprlock, polkit agents) where you want to also enter
+        # your password. This makes it so you must FIRST enter your password, or
+        # press enter which then prompts you for fingerprint.
+        # Unfortunately, the PAM auth is sequential by design, so this sucks no
+        # matter what. Se my comment here:
+        # https://github.com/linux-pam/linux-pam/issues/301#issuecomment-4412173045
+        # Here for the solution:
+        # https://github.com/swaywm/swaylock/issues/61#issuecomment-965175390
+        # https://wiki.archlinux.org/title/Fprint#Login_configuration
+        ${s}.rules.auth.unix-before-fprintd = {
+          enable = true;
+          order = config.security.pam.services.${s}.rules.auth.fprintd.order - 10;
+          control = "sufficient";
+          modulePath = "${pkgs.linux-pam}/lib/security/pam_unix.so";
+          settings = {
+            likeauth = true;
+            nullok = true;
+            try_first_pass = true;
+            nodelay = false;
+          };
+        };
+      })
+      servicesToAddFprintdPasswdRule));
 
   # (polkitd is enabled from somewhere else already, but I'll keep this anyways)
   # Manage unpriviledged processes' access to priviledged processes
@@ -66,10 +117,6 @@
   # Hands out realtime scheduling priority to user processes on demand
   security.rtkit.enable = true;
 
-  # Enable screen lockers to actually unlock the screen (are these really needed?)
-  security.pam.services.hyprlock = { };
-  security.pam.services.swaylock = { };
-
   # Dbus service that allows applications to query and manipulate storage devices
   services.udisks2.enable = true;
   services.udisks2.mountOnMedia = true; # mounts drives at /media/ instead of /run/media/$user
@@ -82,7 +129,7 @@
     HandleLidSwitch = "suspend";
     HandleLidSwitchDocked = "ignore";
     HandleLidSwitchExternalPower = "suspend";
-    HandlePowerKey = "sleep";
+    HandlePowerKey = "suspend";
     HandlePowerKeyLongPress = "poweroff";
   };
 }
