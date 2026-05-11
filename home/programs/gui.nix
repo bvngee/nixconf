@@ -12,10 +12,6 @@
     onlyoffice-desktopeditors
     libreoffice
 
-    # Password manager
-    bitwarden-desktop
-    bitwarden-cli
-
     # Chat apps
     vesktop
     element-desktop
@@ -55,4 +51,10 @@
   ];
 
   services = { };
+
+  xdg.autostart.entries = [
+    # Note: Installed in nixos/programs/bitwarden.nix due to
+    # https://github.com/nix-community/home-manager/issues/5559
+    "${pkgs.bitwarden-desktop}/share/applications/bitwarden.desktop"
+  ];
 }

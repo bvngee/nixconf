@@ -7,6 +7,7 @@
   services.poweralertd.enable = true;
   services.poweralertd.extraArgs = [ "-s" "-S" ];
 
+  # Note: nm-applet is enabled in nixos/hardware/network.nix
   dconf.settings = {
     "org/gnome/nm-applet" = {
       disable-connected-notifications = true;

@@ -45,6 +45,7 @@ let
     ../nixos/programs/zsh.nix
     ../nixos/programs/kdeconnect.nix
     ../nixos/programs/ssh.nix
+    ../nixos/programs/bitwarden.nix
     ../nixos/programs/tailscale.nix
   ];
 in
