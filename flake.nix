@@ -35,7 +35,7 @@
 
     # sometimes I want to update nnixpkgs-unstable without recompiling linux_xanmod and
     # nvidia drivers. When I do feel like it, I can fast-forward this
-    nixpkgs-kernel-packages.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs-kernel-packages.url = "github:nixos/nixpkgs/09eb77e94fa25202af8f3e81ddc7353d9970ac1b";
 
     nixpkgs-kicad.url = "github:nixos/nixpkgs/c397ef6af68c018462d786e1b65384abc472a907";
 
