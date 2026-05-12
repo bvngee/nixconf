@@ -14,10 +14,19 @@
   services.tuned = {
     enable = true;
     ppdSettings = {
+      main.default = "balanced";
+      main.battery_detection = true;
+      # Profile map used when plugged in (AC)
       profiles = {
-        balanced = "balanced";
-        performance = "throughput-performance";
         power-saver = "powersave";
+        balanced = "balanced"; # TODO: decide if this should be throughput-performance instead
+        performance = "throughput-performance";
+      };
+      # Profile map used when running on battery
+      battery = {
+        power-saver = "powersave";
+        balanced = "balanced-battery";
+        performance = "throughput-performance";
       };
     };
   };
