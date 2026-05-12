@@ -17,6 +17,9 @@
       # enable to true and remove all the manual stuff below.
       # kernelSuspendNotifier = true;
     };
+    # Note: this version seems to have a GSP problem:
+    # https://github.com/NVIDIA/open-gpu-kernel-modules/issues/1064
+    # "NVRM: _kgspRpcRecvPoll: GSP RM heartbeat timed out", etc
     package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
       version = "595.58.03";
       sha256_64bit = "sha256-jA1Plnt5MsSrVxQnKu6BAzkrCnAskq+lVRdtNiBYKfk=";
