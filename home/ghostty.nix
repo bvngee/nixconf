@@ -1,22 +1,23 @@
 { config, ... }: {
-  # Witing on:
-  # https://github.com/mitchellh/ghostty/issues/1307
   programs.ghostty = {
     enable = true;
     enableZshIntegration = true;
+    # Spawns app-com.mitchellh.ghostty.service at graphical-session.target, to
+    # make gtk-single-instance work immediately instead of after first window
+    systemd.enable = true; 
   };
 
   xdg.configFile."ghostty/config".text =
     with config.scheme.withHashtag; ''
       window-decoration = false
       font-family = "Hack Nerd Font"
-      background-opacity = 0.9
+      background-opacity = 1.0
       font-size = 11
-      font-thicken = true
       cursor-style-blink = false
       cursor-style = block
-      shell-integration-features = sudo,no-cursor
+      shell-integration-features = sudo,no-cursor,ssh-env
       adjust-cursor-thickness = 1
+      quit-after-last-window-closed = false
     
       foreground = ${base05}
       background = ${base00}
