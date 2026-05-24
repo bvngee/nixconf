@@ -1,13 +1,79 @@
-{ config, ... }: {
+{ pkgs, config, ... }: {
   programs.ghostty = {
     enable = true;
     enableZshIntegration = true;
     # Spawns app-com.mitchellh.ghostty.service at graphical-session.target, to
     # make gtk-single-instance work immediately instead of after first window
-    systemd.enable = true; 
+    systemd.enable = true;
   };
 
   xdg.configFile."ghostty/config".text =
+    let
+      customCSS = pkgs.writeText "ghostty-custom.css" ''
+        headerbar {
+            min-height: 10px;
+            padding: 0;
+            margin: 0;
+        }
+
+        revealer.raised.bottom-bar {
+            /* Make default shadow a bit weaker (lower alpha) (todo: this might make light theme harder to see */
+            box-shadow: 0 -1px color(srgb 0 0 0.023 / 0.1), 0 -2px 4px color(srgb 0 0 0.023 / 0.1);
+
+            /* Part 1 of disabling dim-on-unfocus */
+            background-color: rgba(0,0,0,0);
+        }
+
+        revealer windowhandle {
+            /* Part 2 of disabling dim-on-unfocus */
+            filter: none;
+        }
+
+        tabbar tabbox {
+            margin: -4px -10px;
+            padding: 0;
+            min-height: 10px;
+            font-family: Hack Nerd Font;
+            -gtk-icon-size: 14px;
+
+            /*background-color: #181926;*/
+        }
+
+        tabbar tabbox tab {
+            margin: 0;
+            padding: 0;
+            /*background-color: #1e2030;*/
+            /*color: #cad3f5;*/
+            border-radius: 0px;
+            
+            /* Make tab transition instant */
+            transition-duration: 0s;
+        }
+
+        tabbar tabbox separator {
+            /*background-color: #000000;*/
+        }
+
+        tabbar tabbox tab:selected {
+            padding: 0px;
+        }
+
+        tabbox tab button image {
+            /* Hack: the button is still there just invisible until you hover over it */
+            opacity: 0;
+            min-width: 0;
+        }
+
+        tabbar tabbox tab label {
+            font-size: 14px;
+        }
+
+        tabbar tabbox tab:selected label {
+            font-style: italic;
+            font-weight: bold;
+        }
+      '';
+    in
     with config.scheme.withHashtag; ''
       window-decoration = false
       font-family = "Hack Nerd Font"
@@ -18,6 +84,9 @@
       shell-integration-features = sudo,no-cursor,ssh-env
       adjust-cursor-thickness = 1
       quit-after-last-window-closed = false
+      gtk-tabs-location=bottom
+      gtk-toolbar-style=raised
+      gtk-custom-css = ${customCSS}
     
       foreground = ${base05}
       background = ${base00}
