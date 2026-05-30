@@ -94,6 +94,8 @@
     gm = "git merge";
     gmc = "git merge --continue";
     gma = "git merge --abort";
+    gw = "git worktree";
+    gwl = "git worktree list";
   };
 
   xdg.configFile."git/global_gitignore".text = ''

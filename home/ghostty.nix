@@ -84,8 +84,11 @@
       shell-integration-features = sudo,no-cursor,ssh-env
       adjust-cursor-thickness = 1
       quit-after-last-window-closed = false
-      gtk-tabs-location=bottom
-      gtk-toolbar-style=raised
+      gtk-tabs-location = bottom
+      gtk-toolbar-style = raised
+      gtk-wide-tabs = false
+      window-new-tab-position = end
+      app-notifications = no-clipboard-copy
       gtk-custom-css = ${customCSS}
     
       foreground = ${base05}
@@ -121,5 +124,109 @@
       palette = 19=${base02}
       palette = 20=${base04}
       palette = 21=${base06}    
+        
+      # clear default keybinds; add back the ones I want plus some of my own
+      keybind = clear
+
+      # keybind = super+ctrl+shift+arrow_down=resize_split:down,10
+      # keybind = super+ctrl+shift+arrow_left=resize_split:left,10
+      # keybind = super+ctrl+shift+arrow_right=resize_split:right,10
+      # keybind = super+ctrl+shift+arrow_up=resize_split:up,10
+      # keybind = super+ctrl+shift+j=write_screen_file:copy,plain
+      # keybind = ctrl+alt+shift+j=write_screen_file:open,plain
+      # keybind = super+ctrl+[=goto_split:previous
+      # keybind = super+ctrl+]=goto_split:next
+      # keybind = ctrl+alt+arrow_down=goto_split:down
+      # keybind = ctrl+alt+arrow_left=goto_split:left
+      # keybind = ctrl+alt+arrow_right=goto_split:right
+      # keybind = ctrl+alt+arrow_up=goto_split:up
+      # keybind = ctrl+shift+,=reload_config
+      # keybind = ctrl+shift+enter=toggle_split_zoom
+      keybind = ctrl+shift+tab=previous_tab
+      keybind = ctrl+shift+page_down=jump_to_prompt:1
+      keybind = ctrl+shift+page_up=jump_to_prompt:-1
+      keybind = ctrl+shift+arrow_left=previous_tab
+      keybind = ctrl+shift+arrow_right=next_tab
+      keybind = ctrl+shift+a=select_all
+      keybind = ctrl+shift+c=copy_to_clipboard:mixed
+      # keybind = ctrl+shift+e=new_split:down
+      keybind = ctrl+shift+f=start_search
+      # keybind = ctrl+shift+i=inspector:toggle
+      # keybind = ctrl+shift+j=write_screen_file:paste,plain
+      # keybind = ctrl+shift+n=new_window
+      # keybind = ctrl+shift+o=new_split:right
+      keybind = ctrl+shift+p=toggle_command_palette
+      # keybind = ctrl+shift+q=quit
+      keybind = ctrl+shift+t=new_tab
+      keybind = ctrl+shift+v=paste_from_clipboard
+      keybind = ctrl+shift+w=close_tab:this
+      # keybind = alt+digit_1=goto_tab:1
+      # keybind = alt+digit_2=goto_tab:2
+      # keybind = alt+digit_3=goto_tab:3
+      # keybind = alt+digit_4=goto_tab:4
+      # keybind = alt+digit_5=goto_tab:5
+      # keybind = alt+digit_6=goto_tab:6
+      # keybind = alt+digit_7=goto_tab:7
+      # keybind = alt+digit_8=goto_tab:8
+      # keybind = alt+1=goto_tab:1
+      # keybind = alt+2=goto_tab:2
+      # keybind = alt+3=goto_tab:3
+      # keybind = alt+4=goto_tab:4
+      # keybind = alt+5=goto_tab:5
+      # keybind = alt+6=goto_tab:6
+      # keybind = alt+7=goto_tab:7
+      # keybind = alt+8=goto_tab:8
+      keybind = ctrl+shift+digit_1=goto_tab:1
+      keybind = ctrl+shift+digit_2=goto_tab:2
+      keybind = ctrl+shift+digit_3=goto_tab:3
+      keybind = ctrl+shift+digit_4=goto_tab:4
+      keybind = ctrl+shift+digit_5=goto_tab:5
+      keybind = ctrl+shift+digit_6=goto_tab:6
+      keybind = ctrl+shift+digit_7=goto_tab:7
+      keybind = ctrl+shift+digit_8=goto_tab:8
+      keybind = ctrl+shift+1=goto_tab:1
+      keybind = ctrl+shift+2=goto_tab:2
+      keybind = ctrl+shift+3=goto_tab:3
+      keybind = ctrl+shift+4=goto_tab:4
+      keybind = ctrl+shift+5=goto_tab:5
+      keybind = ctrl+shift+6=goto_tab:6
+      keybind = ctrl+shift+7=goto_tab:7
+      keybind = ctrl+shift+8=goto_tab:8
+      keybind = alt+9=last_tab
+      # keybind = alt+f4=close_window
+      keybind = ctrl++=increase_font_size:1
+      keybind = ctrl+,=open_config
+      keybind = ctrl+-=decrease_font_size:1
+      keybind = ctrl+0=reset_font_size
+      # keybind = ctrl+enter=toggle_fullscreen
+      keybind = ctrl+==increase_font_size:1
+      keybind = ctrl+tab=next_tab
+      # keybind = ctrl+insert=copy_to_clipboard:mixed
+      # keybind = ctrl+page_down=next_tab
+      # keybind = ctrl+page_up=previous_tab
+      # keybind = shift+end=scroll_to_bottom
+      # keybind = shift+home=scroll_to_top
+      # keybind = shift+insert=paste_from_selection
+      # keybind = shift+page_down=scroll_page_down
+      # keybind = shift+page_up=scroll_page_up
+      # keybind = shift+arrow_down=adjust_selection:down
+      # keybind = shift+arrow_left=adjust_selection:left
+      # keybind = shift+arrow_right=adjust_selection:right
+      # keybind = shift+arrow_up=adjust_selection:up
+      keybind = ctrl+shift+end=scroll_to_bottom
+      keybind = ctrl+shift+home=scroll_to_top
+      # keybind = ctrl+shift+insert=paste_from_selection
+      keybind = ctrl+shift+page_down=scroll_page_down
+      keybind = ctrl+shift+page_up=scroll_page_up
+      keybind = ctrl+shift+arrow_down=adjust_selection:down
+      keybind = ctrl+shift+arrow_left=adjust_selection:left
+      keybind = ctrl+shift+arrow_right=adjust_selection:right
+      keybind = ctrl+shift+arrow_up=adjust_selection:up
+      keybind = performable:escape=end_search
+      keybind = copy=copy_to_clipboard:mixed
+      keybind = paste=paste_from_clipboard
+
+      keybind = ctrl+shift+.=move_tab:1
+      keybind = ctrl+shift+,=move_tab:-1
     '';
 }
