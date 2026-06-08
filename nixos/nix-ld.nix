@@ -74,6 +74,7 @@
       xorg.xcbutilerrors
       zlib
       orc
+      krb5.lib
     ];
   };
 }
