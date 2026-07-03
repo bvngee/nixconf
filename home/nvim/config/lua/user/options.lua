@@ -5,6 +5,7 @@ local opt = vim.opt
 
 opt.mouse = 'a'
 opt.mousemodel = 'extend'
+opt.mousescroll = 'ver:1,hor:1'
 opt.termguicolors = true
 opt.fileencoding = 'utf-8'
 opt.fsync = true
