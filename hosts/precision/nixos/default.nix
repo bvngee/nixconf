@@ -30,6 +30,7 @@
   # so we must resort to globally disabling vulkan for GTK (other vulkan apps
   # will still use the dGPU).
   # https://gitlab.gnome.org/GNOME/gtk/-/work_items/6689
+  # https://forums.developer.nvidia.com/t/550-67-nvidia-vulkan-icd-wakes-up-dgpu-on-initialization-and-exit/288095/12
   environment.sessionVariables.GSK_RENDERER = "gl";
   # Alternatively, we could forcefully limit the Vulkan driver selection for all
   # apps:
