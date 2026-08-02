@@ -19,6 +19,7 @@ let
     ../nixos/wayland
     ../nixos/x11
 
+    ../nixos/hardware/firmware.nix
     ../nixos/hardware/printing.nix
     ../nixos/hardware/backlight.nix
     ../nixos/hardware/graphics.nix
@@ -27,6 +28,7 @@ let
     ../nixos/hardware/power.nix
     ../nixos/hardware/audio.nix
     ../nixos/hardware/network.nix
+    ../nixos/hardware/aic8800.nix
     ../nixos/hardware/bluetooth.nix
     ../nixos/hardware/libinput.nix
     ../nixos/hardware/filesystems.nix

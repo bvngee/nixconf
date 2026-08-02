@@ -16,11 +16,11 @@
       in
       {
         ${system} = {
-          mow = pkgs.callPackage ./pkgs/mow {};
+          mow = pkgs.callPackage ./pkgs/mow { };
 
-          ix_usb_can = pkgs.linuxPackages.callPackage ./pkgs/ix_usb_can {};
+          ix_usb_can = pkgs.linuxPackages.callPackage ./pkgs/ix_usb_can { };
 
-          supercan_usb = pkgs.linuxPackages.callPackage ./pkgs/supercan_usb {};
+          supercan_usb = pkgs.linuxPackages.callPackage ./pkgs/supercan_usb { };
         };
       };
 
@@ -38,6 +38,9 @@
     nixpkgs-kernel-packages.url = "github:nixos/nixpkgs/09eb77e94fa25202af8f3e81ddc7353d9970ac1b";
 
     nixpkgs-kicad.url = "github:nixos/nixpkgs/c397ef6af68c018462d786e1b65384abc472a907";
+
+    # aic8800 USB kernel driver, for AX900 Wi-Fi USB Adapter (thanks Luca)
+    nixpkgs-aic8800.url = "github:Cryolitia-Forks/nixpkgs/aic8800";
 
     # nix-index, but with a prebuilt database (and convenient hm/nixos modules)
     nix-index-database = {

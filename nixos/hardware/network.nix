@@ -53,7 +53,7 @@
           identity = "jnystrom@ucsc.edu";
           # Password is agent-owned. NM will query a secret agent program for
           # the password, i.e. nm-applet (https://networkmanager.dev/docs/libnm/latest/NMSetting.html#NMSettingSecretFlags)
-          password-flags = 1; 
+          password-flags = 1;
           phase2-auth = "mschapv2";
         };
         connection = {

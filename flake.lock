@@ -145,6 +145,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-aic8800": {
+      "locked": {
+        "lastModified": 1767803080,
+        "narHash": "sha256-J/GOFTdZrLgd+0BJ3lcmttT+mv8htZnn3fhHMG0Hb3g=",
+        "owner": "Cryolitia-Forks",
+        "repo": "nixpkgs",
+        "rev": "6e16b6370e7f7bd26d80fab5e5e4237b3455bb59",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Cryolitia-Forks",
+        "ref": "aic8800",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-kernel-packages": {
       "locked": {
         "lastModified": 1765311797,
@@ -210,11 +226,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1777954456,
-        "narHash": "sha256-hGdgeU2Nk87RAuZyYjyDjFL6LK7dAZN5RE9+hrDTkDU=",
+        "lastModified": 1785571196,
+        "narHash": "sha256-KoTsyMQqnXQZq8deCEnu4QkyldkwH/bpMMhUcfMdGIw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "549bd84d6279f9852cae6225e372cc67fb91a4c1",
+        "rev": "148bab9c1c3c53136ecb44a6ea356a0ed5b39b06",
         "type": "github"
       },
       "original": {
@@ -251,6 +267,7 @@
         "home-manager": "home-manager",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-aic8800": "nixpkgs-aic8800",
         "nixpkgs-kernel-packages": "nixpkgs-kernel-packages",
         "nixpkgs-kicad": "nixpkgs-kicad",
         "nixpkgs-neovim": "nixpkgs-neovim",
