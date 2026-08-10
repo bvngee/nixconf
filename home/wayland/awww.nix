@@ -1,7 +1,7 @@
 { pkgs, ... }: let
   wallpaperScript = pkgs.writeShellScriptBin "apply_wallpaper" ''
     wallpaper=$1
-    swww img \
+    awww img \
       --transition-type wipe \
       --transition-angle 22 \
       --transition-step 100 \
@@ -14,7 +14,7 @@
   randomWallpaperScript = pkgs.writeShellScriptBin "apply_random_wallpaper" ''
     wallpaper_dir=$1
     wallpaper="$(find $wallpaper_dir -type f | shuf -n 1)"
-    swww img \
+    awww img \
       --transition-type wipe \
       --transition-angle 22 \
       --transition-step 100 \
@@ -28,7 +28,7 @@ in {
 
   home.packages = with pkgs; [
     libnotify
-    swww
+    awww
 
     wallpaperScript
     randomWallpaperScript

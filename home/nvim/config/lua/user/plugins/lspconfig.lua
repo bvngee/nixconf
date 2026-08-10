@@ -79,7 +79,7 @@ return {
         root_dir = vim.loop.cwd(),
         cmd = {
           -- See https://bvngee.com/blogs/clangd-embedded-development (temporary)
-          'clangd-unwrapped',
+          'clangd',
           -- Whitelists all compiler binaries. Notably a security risk, but I'm usually working in trusted environments.
           '--query-driver=**',
           -- Enforce symlinking compile_commands.json from the build dir to root_dir (the heuristics aren't reliable)

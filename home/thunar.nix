@@ -11,7 +11,9 @@
     "file://${home}/Videos"
     "file://${home}/Pictures"
     "file://${home}/dev"
+    "file://${home}/dev/formula-slug"
     "file://${home}/.config"
+    "file://${home}/.local/share"
   ] ++ lib.optionals (config.host.hostname == "pc") [
     "file:///mnt/windows"
     "file:///mnt/SecondaryDrive"
@@ -24,6 +26,7 @@
   '';
 
   # Set default Thunar UI arrangement (and removes the annoying default bookmarks)
+  xdg.configFile."xfce4/xfconf/xfce-perchannel-xml/thunar.xml".force = true;
   xdg.configFile."xfce4/xfconf/xfce-perchannel-xml/thunar.xml".text = ''
     <?xml version="1.0" encoding="UTF-8"?>
 
@@ -59,6 +62,7 @@
   '';
 
   # Use kitty by default when opening a terminal
+  xdg.configFile."Thunar/uca.xml".force = true;
   xdg.configFile."Thunar/uca.xml".text = ''
     <?xml version="1.0" encoding="UTF-8"?>
     <actions>

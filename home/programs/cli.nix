@@ -10,7 +10,6 @@
     file
     btop
     htop
-    neofetch
     fastfetch
     pfetch-rs
     unzip

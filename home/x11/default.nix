@@ -4,6 +4,6 @@
     xss-lock
     dex
     xdotool
-    xorg.xwd
+    xwd
   ];
 }

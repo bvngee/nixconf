@@ -3,7 +3,7 @@
     qemu # emulate other architectures (literally magic)
 
     # see https://wiki.nixos.org/wiki/Wine
-    wineWowPackages.stable # consider staging/wayland?
+    wine
     winetricks
   ];
 

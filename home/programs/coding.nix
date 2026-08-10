@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }: {
+{ pkgs, ... }: {
   home.packages =
     let
       # Some dynamic executables are unpatched but are loaded by patched nixpkgs
@@ -21,14 +21,6 @@
           chmod +x $new_file
         done
       '');
-
-      # I wrote a blog post about this! https://bvngee.com/blogs/clangd-embedded-development
-      # I don't need all clang-tools to be unwrapped, only really clangd
-      # TODO(future me): remove when PRs/Issues are resolved
-      clangdUnwrapped = pkgs.runCommand "clangdUnwrapped" { } ''
-        mkdir -p $out/bin
-        ln -s ${inputs.nixpkgs-neovim.legacyPackages.${pkgs.stdenv.hostPlatform.system}.clang.cc}/bin/clangd $out/bin/clangd-unwrapped
-      '';
     in
     with pkgs; [
       # IDEs and Editors
@@ -50,7 +42,6 @@
       # C/C++
       stdenv.cc # same C/C++ toolchain used to build nixpkgs packages
       clang-tools
-      clangdUnwrapped
       bear
       gdb
       meson
@@ -82,7 +73,7 @@
       stylua
 
       # Shell
-      nodePackages.bash-language-server
+      bash-language-server
       shellcheck
       powershell-editor-services # windows stuff
       powershell
@@ -93,17 +84,16 @@
 
       # JS/TS
       nodejs
-      nodePackages.typescript
-      nodePackages.typescript-language-server # wraps tsserver
+      typescript
+      typescript-language-server # wraps tsserver
       tailwindcss-language-server
       vscode-langservers-extracted # includes html/css/json/eslint
       astro-language-server
       svelte-language-server
       lemminx # xml lsp
-      nodePackages.eslint
-      nodePackages.prettier
+      eslint
+      prettier
       prettierd
-      sassc
 
       # Zig
       zig
@@ -117,13 +107,6 @@
       typst
       tinymist
       typstyle
-
-      # Dart / Flutter
-      flutter
-
-      # Haskell
-      stack
-      haskellPackages.haskell-language-server
     ];
 
   programs.zed-editor = {

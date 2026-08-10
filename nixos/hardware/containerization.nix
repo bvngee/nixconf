@@ -2,7 +2,6 @@
   environment.systemPackages = with pkgs; [
     # not sure if I really need these?
     podman-compose
-    podman-desktop
 
     # basically a docker/podman wrapper that simplifies making tightly-integrated linux containers
     # NOTE(https://github.com/89luca89/distrobox/issues/1229):

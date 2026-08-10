@@ -27,7 +27,7 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Extremely temporary; pending nvim config update
@@ -36,8 +36,6 @@
     # sometimes I want to update nnixpkgs-unstable without recompiling linux_xanmod and
     # nvidia drivers. When I do feel like it, I can fast-forward this
     nixpkgs-kernel-packages.url = "github:nixos/nixpkgs/09eb77e94fa25202af8f3e81ddc7353d9970ac1b";
-
-    nixpkgs-kicad.url = "github:nixos/nixpkgs/c397ef6af68c018462d786e1b65384abc472a907";
 
     # aic8800 USB kernel driver, for AX900 Wi-Fi USB Adapter (thanks Luca)
     nixpkgs-aic8800.url = "github:Cryolitia-Forks/nixpkgs/aic8800";
@@ -49,7 +47,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

@@ -1,52 +1,53 @@
 { pkgs, ... }: {
 
   home.packages =
-    let
-      # Ilya Fedin's patched "qt5ct-kde". He removed qt5ct from his NUR since
-      # KFrameworks are qt6 now, but I still want it for correct Breeze theming.
-      qt5ct-kde = pkgs.libsForQt5.qt5ct.overrideAttrs (oldAttrs: rec {
-        version = "1.8";
-        src = pkgs.fetchurl {
-          url = "mirror://sourceforge/qt5ct/qt5ct-${version}.tar.bz2";
-          hash = "sha256-I7dAVEFepBJDKHcu+ab5UIOpuGVp4SgDSj/3XfrYCOk=";
-        };
-        patches =
-          (oldAttrs.patches or [ ])
-          ++ [
-            (pkgs.fetchurl {
-              url = "https://raw.githubusercontent.com/ilya-fedin/nur-repository/a9fceac877c07a7c0b56b08e35e750d36c332804/pkgs/qt5ct/qt5ct-shenanigans.patch";
-              hash = "sha256-fziJn5xcSdtqwf69p36god0342n5zSHdJScjRw/IbgY=";
-            })
-          ];
-        buildInputs =
-          oldAttrs.buildInputs
-          ++ (with pkgs.libsForQt5; [
-            qtquickcontrols2
-            kconfig
-            kconfigwidgets
-            kiconthemes
-          ]);
-        nativeBuildInputs =
-          (builtins.filter (x: x.name or "" != "qmake") oldAttrs.nativeBuildInputs)
-          ++ [
-            pkgs.extra-cmake-modules
-            pkgs.cmake
-            pkgs.libsForQt5.qttools
-            pkgs.libsForQt5.wrapQtAppsHook
-          ];
-        dontUseQmakeConfigure = true;
-        cmakeFlags =
-          (oldAttrs.cmakeFlags or [ ])
-          ++ [
-            "-DPLUGINDIR=${builtins.placeholder "out"}/${pkgs.libsForQt5.qtbase.qtPluginPrefix}"
-          ];
-      });
-    in
+    # Nixpkgs removed some kde5 stuff required to build this. TBD if I need to bring it back
+    # let
+    #   # Ilya Fedin's patched "qt5ct-kde". He removed qt5ct from his NUR since
+    #   # KFrameworks are qt6 now, but I still want it for correct Breeze theming.
+    #   qt5ct-kde = pkgs.libsForQt5.qt5ct.overrideAttrs (oldAttrs: rec {
+    #     version = "1.8";
+    #     src = pkgs.fetchurl {
+    #       url = "mirror://sourceforge/qt5ct/qt5ct-${version}.tar.bz2";
+    #       hash = "sha256-I7dAVEFepBJDKHcu+ab5UIOpuGVp4SgDSj/3XfrYCOk=";
+    #     };
+    #     patches =
+    #       (oldAttrs.patches or [ ])
+    #       ++ [
+    #         (pkgs.fetchurl {
+    #           url = "https://raw.githubusercontent.com/ilya-fedin/nur-repository/a9fceac877c07a7c0b56b08e35e750d36c332804/pkgs/qt5ct/qt5ct-shenanigans.patch";
+    #           hash = "sha256-fziJn5xcSdtqwf69p36god0342n5zSHdJScjRw/IbgY=";
+    #         })
+    #       ];
+    #     buildInputs =
+    #       oldAttrs.buildInputs
+    #       ++ (with pkgs.libsForQt5; [
+    #         qtquickcontrols2
+    #         kconfig
+    #         kconfigwidgets
+    #         kiconthemes
+    #       ]);
+    #     nativeBuildInputs =
+    #       (builtins.filter (x: x.name or "" != "qmake") oldAttrs.nativeBuildInputs)
+    #       ++ [
+    #         pkgs.extra-cmake-modules
+    #         pkgs.cmake
+    #         pkgs.libsForQt5.qttools
+    #         pkgs.libsForQt5.wrapQtAppsHook
+    #       ];
+    #     dontUseQmakeConfigure = true;
+    #     cmakeFlags =
+    #       (oldAttrs.cmakeFlags or [ ])
+    #       ++ [
+    #         "-DPLUGINDIR=${builtins.placeholder "out"}/${pkgs.libsForQt5.qtbase.qtPluginPrefix}"
+    #       ];
+    #   });
+    # in
     [
       # Ilya Fedin's patched "qt6ct-kde". See https://www.opencode.net/trialuser/qt6ct/-/merge_requests/9
       pkgs.nur.repos.ilya-fedin.qt6ct # <-- qt6ct-kde
 
-      qt5ct-kde
+      pkgs.libsForQt5.qt5ct
     ];
 
   home.sessionVariables.QT_QPA_PLATFORMTHEME = "qt6ct";

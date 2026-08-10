@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{ config, ... }: {
   xdg.enable = true;
 
   xdg.mimeApps = rec {
@@ -42,8 +42,9 @@
   xdg.userDirs = {
     enable = true;
     createDirectories = true;
+    setSessionVariables = true;
     extraConfig = {
-      XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/Screenshots";
+      SCREENSHOTS = "${config.xdg.userDirs.pictures}/Screenshots";
     };
   };
 

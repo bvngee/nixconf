@@ -18,16 +18,12 @@ in
   services.swayidle = {
     enable = true;
     extraArgs = [ "-d" ];
-    events = [
-      {
-        event = "before-sleep"; # triggered by systemctl suspend
-        command = "${pkgs.systemd}/bin/loginctl lock-session";
-      }
-      {
-        event = "lock"; # triggered by loginctl lock-session
-        command = screenlockScript.outPath;
-      }
-    ];
+    events = {
+      # triggered by systemctl suspend:
+      "before-sleep" = "${pkgs.systemd}/bin/loginctl lock-session";
+      # triggered by loginctl lock-session:
+      "lock" = screenlockScript.outPath;
+    };
     timeouts = [
       { timeout = 297; command = ''${pkgs.libnotify}/bin/notify-send "Sleeping system in 3 seconds..."''; }
       { timeout = 298; command = ''${pkgs.libnotify}/bin/notify-send "Sleeping system in 2 seconds..."''; } # shits not working bruh

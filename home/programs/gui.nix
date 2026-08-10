@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }: {
+{ pkgsUnstable, config, pkgs, ... }: {
   home.packages = with pkgs; [
     # Image, video
     kdePackages.gwenview
@@ -37,17 +37,15 @@
     kdePackages.kcalc
     mission-center
     snapshot
-    helvum # pipewire graph thingy
+    crosspipe # pipewire graph thingy
     pavucontrol
     showmethekey # shows keys typed in a little gui
     qbittorrent
     freecad
+    kicad
 
     # Davinci Resolve only lets you use your Studio key on a select # of machines
     (if config.host.hostname == "pc" then davinci-resolve-studio else davinci-resolve)
-
-    # Kicad 9.0.8, contains the fix for readonly sym/fp lib tables from 9.0.6.
-    inputs.nixpkgs-kicad.legacyPackages.${pkgs.stdenv.hostPlatform.system}.kicad
   ];
 
   services = { };
@@ -55,6 +53,6 @@
   xdg.autostart.entries = [
     # Note: Installed in nixos/programs/bitwarden.nix due to
     # https://github.com/nix-community/home-manager/issues/5559
-    "${pkgs.bitwarden-desktop}/share/applications/bitwarden.desktop"
+    "${pkgsUnstable.bitwarden-desktop}/share/applications/bitwarden.desktop"
   ];
 }

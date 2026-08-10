@@ -59,6 +59,7 @@ let {
     type = "volume"
     //format = "<span color='#ffffff'>VOL</span> {percentage}"
     format = "VOL {percentage}"
+    show_sources = false
   }
   $battery = {
     type = "battery"

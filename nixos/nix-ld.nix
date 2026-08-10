@@ -50,28 +50,27 @@
       libgbm
       vulkan-loader
       wayland
-      xorg.libX11
-      xorg.libXScrnSaver
-      xorg.libXcomposite
-      xorg.libXcursor
-      xorg.libXdamage
-      xorg.libXext
-      xorg.libXfixes
-      xorg.libXi
-      xorg.libXrandr
-      xorg.libXrender
-      xorg.libXtst
-      xorg.libxcb
-      xorg.libxkbfile
-      xorg.libxshmfence
-      xorg.libSM
-      xorg.libICE
-      xorg.xcbutilkeysyms
-      xorg.xcbutilimage
-      xorg.xcbutilrenderutil
-      xorg.xcbutilwm
-      xorg.xcbutilerrors
-      xorg.xcbutilerrors
+      libx11
+      libxscrnsaver
+      libxcomposite
+      libxcursor
+      libxdamage
+      libxext
+      libxfixes
+      libxi
+      libxrandr
+      libxrender
+      libxtst
+      libxcb
+      libxkbfile
+      libxshmfence
+      libsm
+      libice
+      libxcb-keysyms
+      libxcb-image
+      libxcb-render-util
+      libxcb-wm
+      libxcb-errors
       zlib
       orc
       krb5.lib

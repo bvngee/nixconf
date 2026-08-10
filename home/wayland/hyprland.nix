@@ -1,10 +1,18 @@
-{ pkgs, config, ... }: {
+{ pkgs, pkgsUnstable, config, ... }: {
 
   # Hyprland's HM module handles plugins and config generation.
   wayland.windowManager.hyprland = {
     enable = true;
+    configType = "hyprlang";
     plugins = [
-      pkgs.hyprlandPlugins.hyprsplit
+      (pkgsUnstable.hyprlandPlugins.hyprsplit.overrideAttrs {
+        src = pkgs.fetchFromGitHub {
+          owner = "cryeprecision";
+          repo = "hyprsplit";
+          rev = "6870872c24672745614d1cf61cb70dcc0d6fd0a9";
+          sha256 = "sha256-pzQE5nDDfZI97HAfS71kKjvQDEa1F+g8HNdPSgW3hgg=";
+        };
+      })
     ];
 
     systemd.enable = true;

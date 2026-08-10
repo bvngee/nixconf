@@ -5,7 +5,7 @@
     ./swayidle.nix
     ./swaylock.nix
     ./sway.nix
-    ./swww.nix
+    ./awww.nix
   ];
 
   home.packages = with pkgs; [
@@ -30,7 +30,7 @@
     # have to move them to /bin so they get added to PATH)
     (pkgs.runCommand "mate-polkit-bin" {} ''
       mkdir -p $out/bin
-      for bin in ${mate.mate-polkit}/libexec/*; do 
+      for bin in ${mate-polkit}/libexec/*; do 
         ln -s "$bin" $out/bin/$(basename "$bin")
       done
     '')
