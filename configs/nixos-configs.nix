@@ -49,6 +49,7 @@ let
     ../nixos/programs/ssh.nix
     ../nixos/programs/bitwarden.nix
     ../nixos/programs/tailscale.nix
+    ../nixos/programs/slack.nix
   ];
 in
 {

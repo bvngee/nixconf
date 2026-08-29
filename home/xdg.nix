@@ -16,7 +16,7 @@
         "x-scheme-handler/about" = browser;
         "x-scheme-handler/unknown" = browser;
         "x-scheme-handler/element" = [ "element-desktop.desktop" ];
-        "x-scheme-handler/terminal" = "kitty.desktop";
+        "x-scheme-handler/terminal" = "com.mitchellh.ghostty.desktop";
         "application/x-extension-htm" = browser;
         "application/x-extension-html" = browser;
         "application/x-extension-shtml" = browser;
@@ -58,7 +58,7 @@
   xdg.terminal-exec = {
     enable = true;
     settings = {
-      default = [ "kitty.desktop" ];
+      default = [ "com.mitchellh.ghostty.desktop" ];
     };
   };
 }
