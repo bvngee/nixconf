@@ -99,4 +99,14 @@ in
       ../nixos/hardware/ssd.nix
     ] ++ commonGraphicalNixosModules;
   };
+  "zerothink" = mkNixosSystem {
+    imports = [
+      ../hosts/zerothink/profile.nix
+      ../hosts/zerothink/nixos
+
+      ../nixos/kde.nix
+      ../nixos/hardware/vms.nix
+      ../nixos/hardware/ssd.nix
+    ] ++ commonGraphicalNixosModules;
+  };
 }
