@@ -87,6 +87,12 @@ in
       ../hosts/precision-old/profile.nix
     ] ++ commonGraphicalHMModules;
   };
+  "jack@zerothink" = mkHomeManagerConfig {
+    system = "x86_64-linux";
+    imports = [
+      ../hosts/zerothink/profile.nix
+    ] ++ commonGraphicalHMModules;
+  };
 
   "jacknystrom@wsl" = mkHomeManagerConfig {
     system = "x86_64-linux";
