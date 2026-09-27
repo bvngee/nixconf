@@ -39,7 +39,7 @@
         else
           if isNvidia
           then "nvidia"
-          else (throw "I've only dealt with systems with Nvidia GPUs and/or Nvidia PRIME. Figure out how to set LIBVA hw accel for other DGPUs?");
+          else null;
 
       # Tell the nvidia-vaapi-driver to use the direct backend instead of egl. Always the correct option.
       NVD_BACKEND = "direct";
