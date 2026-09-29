@@ -1,7 +1,7 @@
 { ... }: {
   host = {
     hostname = "zerothink";
-    stateVersion = "25.11";
+    stateVersion = "26.05";
     flakeRoot = "/home/jack/dev/nixconf";
     isMobile = true;
     isNvidia = false;
