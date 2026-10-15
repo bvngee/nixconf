@@ -6,7 +6,21 @@ in
 {
   # Some necessary packages related to the static files
   home.packages = with pkgs; [
-    ironbar
+    (ironbar.overrideAttrs (src: rec {
+      version = "0.19.0-149c0d0";
+      src = pkgs.fetchFromGitHub {
+        repo = "ironbar";
+        owner = "JakeStanger";
+        rev = "149c0d0d7e26366d066b14878a8e85cf1ee32f42"; # https://github.com/JakeStanger/ironbar/commit/149c0d0d7e26366d066b14878a8e85cf1ee32f42
+        sha256 = "sha256-gpAA4YgOMARm0re2a8rlfF5OKCq3VgjznHWnTAn23e4=";
+      };
+      cargoHash = "sha256-H9KpIUBFVAw7/va438/n2L+QYdMfhzdTgIFr/DJpbgw=";
+      cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
+        inherit src;
+        name = src.name;
+        hash = cargoHash;
+      };
+    }))
     yazi
     joshuto
   ];
