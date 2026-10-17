@@ -21,7 +21,7 @@
   documentation = {
     enable = true;
     man.enable = true;
-    man.cache.enable = true;
+    man.cache.enable = false;
     info.enable = true;
     doc.enable = true;
     dev.enable = true;
