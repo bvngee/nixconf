@@ -19,7 +19,7 @@ in
   # controls external monitor brightness using standard brightness protocol.
   boot = {
     extraModulePackages = [ config.boot.kernelPackages.ddcci-driver ];
-    kernelModules = [ "ddcci" "ddcci-backlight" ];
+    kernelModules = [ "ddcci" "ddcci-backlight" "i2c-dev" ];
   };
 
   # If the system has an Nvidia GPU, the ddcci kernel module will most likely not
