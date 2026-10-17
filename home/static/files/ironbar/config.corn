@@ -58,13 +58,25 @@ let {
   $volume = {
     type = "volume"
     //format = "<span color='#ffffff'>VOL</span> {percentage}"
-    format = "VOL {percentage}"
-    show_sources = false
+    format = "{icon} {percentage}"
+    show_sources = true
+    use_default_profiles = false
+    icons.volume = "VOL"
+    icons.muted = "~VOL~"
+    icons.mic_volume = "MIC"
+    icons.mic_muted = "~MIC~"
+    scroll_step = 5
+  }
+  $brightness = {
+    type = "brightness"
+    format = "BRI {percentage}"
+    use_default_profiles = false
+    icon_label = ""
   }
   $battery = {
     type = "battery"
+    show_icon = false
     format = "BAT {percentage}"
-    icon_size = 1
   }
   $sys_info = {
     type = "sys_info"
@@ -98,12 +110,13 @@ in {
   end = [
     $tray
     $separator
-    $mic
+    // $mic
     $volume
     $separator
     $sys_info
     $separator
     $battery
+    $brightness
     $separator
     $clock
   ]

@@ -73,8 +73,6 @@ popover {
 }
 
 
-/* -- separator, widget spacing -- */
-
 #bar .separator {
     color: alpha(var(--fg), 0.6);
     font-size: 10px;
@@ -92,15 +90,11 @@ popover {
 }
 
 
-/* -- clock -- */
-
 .popup-clock .calendar .today {
     background-color: var(--accent-bg-color);
     border-radius: 0.25em;
 }
 
-
-/* -- music -- */
 
 .popup-music .album-art {
     /* TODO: not working */
@@ -135,6 +129,16 @@ popover {
     border-radius: 100%;
 }
 
+
+.volume .sink {
+    /* margin: 10em; */
+    margin-right: 0.5em;
+}
+
+.battery .contents {
+    margin-right: -0.4em;
+}
+
 /* -- sys_info -- */
 
 .sysinfo {
@@ -144,15 +148,9 @@ popover {
 }
 
 
-/* -- tray -- */
-
 .tray .item {
     margin: 0 0.4em;
 }
-
-/* -- volume -- */
-
-/* -- workspaces -- */
 
 .workspaces .item {
     border-radius: 0;
