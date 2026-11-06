@@ -38,7 +38,7 @@
     mission-center
     snapshot
     crosspipe # pipewire graph thingy
-    pavucontrol
+    pwvucontrol # or: pavucontrol with pipewire-pulse
     showmethekey # shows keys typed in a little gui
     qbittorrent
     freecad
